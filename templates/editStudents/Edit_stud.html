@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css'%}?rand=23423423">
+{% endblock css %}
+
+{%block js%}
+    <script src="{%static 'js/editStud.js'%}?23"></script>
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+{%endblock js%}
+
+{%block content%}
+    <div class="container">
+        <form id="add_stud" action="{% url 'edit' %}" method="POST">
+            {% csrf_token %}
+            <h3>Edit Information </h3>
+            <fieldset>
+                Name:
+                <input type="text" id="name" placeholder="Name" value="{{stud.name}}" name='name'>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                Phone:
+                <input type="text" id="phone" placeholder="Phone" value="{{stud.phone}}" name='phone'>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                Email:
+                <input placeholder="Student Email Address" type="email" id="email" tabindex="2" value="{{stud.email}}" name='email'>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                ID:
+                <input type="text" placeholder="ID" id="ID" value="{{stud.stud_ID}}" name='id'>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                GPA:
+                <input type="text" placeholder="GPA" id="GPA" value="{{stud.GPA}}" name='gpa'>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                Status:
+                {% if stud.status == "Active" %}
+                <input type="radio" id="act" name="stat" value="on" checked>
+                <label for="act">Active</label>
+                <input type="radio" id="inact" name="stat" value="off">
+                <label for="inact">Inactive</label>
+                {% else %}
+                <input type="radio" id="act" name="stat" value="on">
+                <label for="act">Active</label>
+                <input type="radio" id="inact" name="stat" checked value="off">
+                <label for="inact">Inactive</label>
+                {% endif %}
+            </fieldset>
+
+            <fieldset>
+                {% if stud.gender == "Male" %}
+                Gender:
+                <input type="radio" id="Male" name="gender" value="on" checked>
+                <label for="act">Male</label>
+                <input type="radio" id="Female" name="gender" value="off">
+                <label for="inact">female</label>
+                {% else %}
+                <input type="radio" id="Male" name="gender" value="on">
+                <label for="act">Male</label>
+                <input type="radio" id="Female" name="gender" checked value="off">
+                <label for="inact">female</label>
+                {% endif %}
+            </fieldset>
+
+            <fieldset>
+                <label for="dep">Choose department</label>
+                <select name="dep" id="dep" disabled> 
+                    <option value="{{stud.department}}">{{stud.department}}</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Date of birth</label>
+                <input type="date" id="bdate" value="{{stud.date|date:'Y-m-d'}}" name='date'>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                
+                <label for="level">Choose level:</label>
+                <select name="level" id="level"> 
+                    <option value="1" id="1">1</option>
+                    <option value="2" id="2">2</option>
+                    <option value="3" id="3">3</option>
+                    <option value="4" id="4">4</option>
+                </select>
+
+            </fieldset>
+
+            <fieldset id="update__delete">
+                <button name="btnSubmit" type="submit" id="Student_submit" data-submit="...Sending">Update</button>
+                <button name="btnSubmit" type="submit" id="Student_delete" data-submit="...Sending">Delete</button>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        var x = "{{stud.level}}"
+        document.getElementById(x).setAttribute("selected","selected")
+    </script>
+{%endblock content%}

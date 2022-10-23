@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Affairs</title>
+    {% block css %}
+    {% endblock css %}
+    {%block js%}
+    {%endblock js%}
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="{% url 'about' %}" id="navbar__logo"><i class="fa-solid fa-graduation-cap"></i> Student Affairs </a>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="{% url 'about' %}" class="navbar__links"><i class="fa-solid fa-house-chimney"></i> Home </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'addFormMainView' %}" class="navbar__links"><i class="fa-solid fa-plus"></i> Add </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'edit' %}" class="navbar__links"><i class="fa-solid fa-pen-to-square"></i>Edit </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'search' %}" class="navbar__links"><i class="fa-solid fa-magnifying-glass"></i> Search </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="{% url 'view' %}" class="navbar__links"><i class="fa-solid fa-people-group"></i> View All </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {%block content%}
+    {%endblock content%}
+
+
+    <div class="footer ">
+        <div class="footer__container ">
+            <table>
+                <tr>
+                    <th>
+                        <div class="footer__links ">
+                            <h2>Explore</h2>
+                            <a href="{% url 'addFormMainView' %}">Add Students</a>
+                            <a href="{% url 'edit' %} ">Edit Students</a>
+                            <a href="{% url 'search' %} ">Search for Students</a>
+                            <a href="{% url 'view' %}"> View All Students </a>
+                        </div>
+                    </th>
+                </tr>
+            </table>
+            <div class="social__icons ">
+                <a href="https://www.facebook.com/ " class="social__icon--link " target="blank ">
+                    <i class="fa-brands fa-facebook "></i>
+                </a>
+                <a href="https://twitter.com/ " class="social__icon--link " target="blank ">
+                    <i class="fa-brands fa-twitter "></i>
+                </a>
+                <a href="https://www.instagram.com/ " class="social__icon--link " target="blank ">
+                    <i class="fa-brands fa-instagram "></i>
+                </a>
+                <a href="https://www.linkedin.com/ " class="social__icon--link " target="blank ">
+                    <i class="fa-brands fa-linkedin-in "></i>
+                </a>
+                <a href="https://www.skype.com/en/ " class="social__icon--link " target="blank ">
+                    <i class="fa-brands fa-skype "></i>
+                </a>
+                <a href="https://discord.com/ " class="social__icon--link " target="blank ">
+                    <i class="fa-brands fa-discord "></i>
+                </a>
+            </div>
+            <div class="social__media ">
+                <p class="website__right "> Faculty of Computers and artificial intelligence 2022</p>
+            </div>
+        </div>
+    </div>

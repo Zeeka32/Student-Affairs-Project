@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css' %}?rand=23423423">
+{% endblock css %}
+
+{%block js%}
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+{%endblock js%}
+
+{%block content%}
+    <div class="main ">
+        <div class="table__container ">
+            <div class="table__content ">
+                <h2 class="homepage__start ">this website was developed by:</h2>
+                <table class="nametb ">
+                    <thead>
+                        <tr>
+                            <th class="r1 ">Name</th>
+                            <th class="r1 ">ID</th>
+                            <th class="r1 ">Group</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="r2 "> Hussien Mostafa Mokhtar Gaith</td>
+                            <td class="r2 "> 20200161</td>
+                            <td class="r2 "> S11-S12 </td>
+                        </tr>
+                        <tr>
+                            <td class="r2 "> Adel Tarek Adel Mounir</td>
+                            <td class="r2 "> 20200800 </td>
+                            <td class="r2 "> S11-S12 </td>
+                        </tr>
+                        <tr>
+                            <td class="r2 "> Ziad Osama Abd El-Fadeel Mohamed </td>
+                            <td class="r2 "> 20200196 </td>
+                            <td class="r2 "> S11-S12 </td>
+                        </tr>
+                        <tr>
+                            <td class="r2 "> Mohmad Refaat Mohamed</td>
+                            <td class="r2 "> 20200443 </td>
+                            <td class="r2 "> S11-S12 </td>
+                        </tr>
+                        <tr>
+                            <td class="r2 "> Abdelrahman Ramadan Abu El Ola</td>
+                            <td class="r2 "> 20200284 </td>
+                            <td class="r2 "> S11-S12 </td>
+                        </tr>
+                        <tr>
+                            <td class="r2 "> Ezz El Deen Ahmed Saber </td>
+                            <td class="r2 "> 20200325 </td>
+                            <td class="r2 "> S11-S12 </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="container">
+                    <form id="returnhome" action="{% url 'home' %}" method="GET">
+                        <button id="return">Return to the main home page</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock content%}

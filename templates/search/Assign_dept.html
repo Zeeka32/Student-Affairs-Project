@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css' %}?rand=23423423">
+{% endblock css %}
+
+{%block js%}
+    <script src="{%static 'js/assignDept.js'%}"></script>
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+{%endblock js%}
+    
+{%block content%}
+    <div class="container">
+        
+        <form id="add_stud" action="{% url 'assignDept' %}" method="GET">
+            <h3>Student Data</h3>
+            <br>
+            <div class="stud__data">
+                <label>Name:</label>
+                <data value="name"> {{Student.name}} </data>
+            </div>
+            <br>
+            <div class="stud__data">
+                <label>ID:</label>
+                <data value="ID"> {{Student.stud_ID}} </data>
+            </div>
+            <br>
+            <div class="stud__data">
+                <label>Email:</label>
+                <data value="email"> {{Student.email}} </data>
+            </div>
+            <br>
+            <div class="stud__data">
+                <label>GPA:</label>
+                <data value="GPA"> {{Student.GPA}} </data>
+            </div>
+            <br>
+            <div class="stud__data">
+                <label>Level:</label>
+                <data id="level" value="level">{{Student.level}}</data>
+                <div class="error"></div>
+            </div>
+            <br>
+            <fieldset>
+                <label for="dept">Choose department</label>
+                <select name="dept" id="dept"> 
+                    <option id="General" value="1">                           General         </option>
+                    <option id="Computer Science" value="2">             Computer Science     </option>
+                    <option id="Information Systems" value="3">          Information Systems   </option>
+                    <option id="Information Technology" value="4">     Information Technology </option>
+                    <option id="Artificial Intelligence" value="5">    Artifical Intelligence </option>
+                    <option id="Decision Support" value="6">              Decision Support    </option>
+                </select>
+            </fieldset>
+            
+            <fieldset>
+                <button type="submit" id="Student-submit" data-submit="...Sending">Assign Department</button>
+            </fieldset>
+            <input type="hidden" id="studID" name="studID" value="{{Student.stud_ID}}">
+        </form>
+    </div>
+    
+    <script>
+        var x = "{{Student.department}}"
+        document.getElementById(x).setAttribute("selected","selected")
+    </script>
+{%endblock content%}

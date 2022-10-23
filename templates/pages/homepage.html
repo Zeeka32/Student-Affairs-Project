@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/homepage.css'%}?rand=23423423">
+    <title>home page</title>
+</head>
+
+<body>
+    <div class="services">
+        <h1>Web Devolopment Projects</h1>
+        <div class="services__container">
+            <div class="services__card">
+                <h2>Human Resources </h2>
+                <p>Manage Employees</p>
+                <button>Go now</button>
+            </div>
+            <div class="services__card">
+                <h2>Student Affairs</h2>
+                <p>Manage Students</p>
+                <a href="{% url 'about' %}" class="button">Go now</a>
+
+
+            </div>
+            <div class="services__card">
+                <h2>Higher studies</h2>
+                <p>Manage Students</p>
+                <button>Go now</button>
+            </div>
+            <div class="services__card">
+                <h2> Laboratory tracking </h2>
+                <p>Manage Laboratories</p>
+                <button> Go now</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css' %}?rand=23423423">
+{% endblock css %}
+
+{%block js%}
+    <script src="{%static 'js/search.js'%}"></script>
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+    <script>
+        var x = "{% url 'editdata' %}"
+    </script>
+{%endblock js%} 
+
+{%block content%}
+{% csrf_token %}
+    <div class="container1">
+        <div id="add_stud">
+            <h3>Search for Student</h3>
+            <br>
+            <div class="wrap">
+                <div class="search">
+                    <input type="text" class="searchTerm" placeholder="Search by Name" name="result" autocomplete="off" id="search">
+                    <input type="button" class='toggle' id="searchButton" value="Search">
+                </div>
+            </div>
+            <h4>Search Results:</h4>
+            <table class="nametb">
+                <thead>
+                    <tr>
+                        <th class="r1">Name</th>
+                        <th class="r1">ID</th>
+                        <th class="r1">GPA</th>
+                        <th class="r1">level</th>
+                        <th class="r1">Department</th>
+                        <th class="r1">Status</th>
+                        <th class="r1">Edit Data</th>
+                    </tr>
+                </thead>
+                <tbody id ='display'>
+                    {% for s in stud %}
+                    <tr class='r2'>
+                        <td>{{s.name}}</td>
+                        <td> {{s.stud_ID}}</td>
+                        <td>{{s.GPA}}</td>
+                        <td>{{s.level}}</td>
+                        <td>{{s.department}}</td>
+                        <td id="status0">{{s.status}}</td>
+                        <td>
+                            <input type="button" class="toggle" value="Edit Data" id="button0" onclick='window.location.href = x + "?studID={{s.stud_ID}}"'>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{%endblock content%}

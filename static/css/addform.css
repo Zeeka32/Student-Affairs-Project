@@ -1,0 +1,152 @@
+body {
+    font-family: sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 30px;
+    color: #777;
+    background: #202020;
+}
+
+.container,
+.container1 {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container1 {
+    max-width: 1200px;
+}
+
+#add_stud {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 50px 0;
+    position: relative;
+}
+
+#add_stud h3 {
+    color: black;
+    display: block;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+#add_stud h4 {
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 13px;
+}
+
+fieldset {
+    border: none;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+    position: relative;
+}
+
+#dep,
+#date {
+    font-size: 16px;
+}
+
+#add_stud input[type="text"],
+#add_stud input[type="email"],
+#add_stud input[type="tel"],
+#add_stud input[type="number"],
+#add_stud textarea {
+    width: 100%;
+    outline: 0;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+
+#add_stud button[type="submit"],
+#add_stud button {
+    cursor: pointer;
+    width: 100%;
+    background: #000;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#add_stud button[type="submit"]:hover,
+#add_stud button:hover {
+    background: #F96;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#add_stud button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#add_stud .error input {
+    border: 3px solid red;
+}
+
+#add_stud .success input {
+    border: 3px solid green;
+    right: 0;
+    top: 13px;
+    font-size: 16px;
+}
+
+i.fa-circle-check,
+i.fa-circle-exclamation {
+    position: absolute;
+    visibility: hidden;
+    right: 0;
+    top: 13px;
+    font-size: 16px;
+}
+
+#add_stud .success i.fa-circle-check {
+    position: absolute;
+    visibility: visible;
+    color: #45e318;
+}
+
+#add_stud .error i.fa-circle-exclamation {
+    visibility: visible;
+    color: #ff0000;
+}
+
+.error {
+    color: #ff0000;
+}
+
+label {
+    color: #777;
+}
+
+.search {
+    display: flex;
+}
+
+#searchButton {
+    margin: 0 0 5px;
+}
+
+#searchbutton0 {
+    width: 30%;
+}
+
+#update__delete {
+    display: flex;
+}
+
+#Student_submit {
+    margin-left: 2.5px;
+}
+
+#Student_delete {
+    margin-right: 2.5px;
+}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css'%}?rand=23423423">
+{% endblock css %}
+
+{%block js%}
+    <script src="{%static 'js/addForm.js'%}"></script>
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+{%endblock js%}
+
+{%block content%}
+    <div class="container">
+        <form id="add_stud" method="POST" action="{% url 'addData' %}">
+            {% csrf_token %}
+            <h3>Add Student</h3>
+            <h4>Enter the Student's details below to add them</h4>
+            <fieldset>
+                Name
+                <input type="text" name="name" placeholder="Name" id="name">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa-solid fa-circle-check"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                Phone
+                <input type="text" name="phone" id="phone" placeholder="Phone">
+                <i class="fa-solid fa-circle-check"></i>
+                <div id="checkmark"><i class="fa-solid fa-circle-check"></i></div>
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                Email
+                <input placeholder="Student Email Address" name="email" type="text" id="email">
+                <div id="checkmark"></div>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa-solid fa-circle-check"></i>
+
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                ID
+                <input type="text" placeholder="ID" id="ID" name="id">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                GPA
+                <input type="text" placeholder="GPA" id="GPA" name="gpa">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+
+            <fieldset>
+                Status
+                <input type="radio" id="act" name="stat" value="on" checked>
+                <label for="act">Active</label>
+                <input type="radio" id="inact" name="stat" value="off">
+                <label for="inact">Inactive</label>
+            </fieldset>
+
+            <fieldset>
+                Gender
+                <input type="radio" id="male" name="gender" value="on" checked>
+                <label for="act">Male</label>
+                <input type="radio" id="female" name="gender" value="off">
+                <label for="inact">Female</label>
+            </fieldset>
+
+            <fieldset>
+                <label for="dep">Choose department</label>
+                <select name="dep" id="dep"> 
+                    <option value="1">       General         </option>
+                    <option value="2">  Computer Science     </option>
+                    <option value="3"> Information Systems   </option>
+                    <option value="4">Information Technology </option>
+                    <option value="5">Artifical intelligence </option>
+                    <option value="6">   Decision Support    </option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label>Date of birth</label>
+                <input type="date" id="bdate" name="date">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa-solid fa-circle-check"></i>
+                <div class="error"></div>
+
+            </fieldset>
+
+            <fieldset>
+                <label for="level">Choose level:</label>
+                <select name="level" id="level"> 
+                    <option value="1"> 1 </option>
+                    <option value="2"> 2 </option>
+                    <option value="3"> 3 </option>
+                    <option value="4"> 4 </option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <button name="submit" type="submit" id="Student-submit" data-submit="...Sending">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+{%endblock content%}

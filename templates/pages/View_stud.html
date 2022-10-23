@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% csrf_token %} 
+
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css' %}?rand=23423423">
+{% endblock css %}
+
+{%block js%}
+    <script src="{%static 'js/viewAll.js'%}"></script>
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+{%endblock js%}
+
+{%block content%}
+    <div class="main">
+        <div class="table__container">
+            <div class="table__content">
+                <h2 class="homepage__start">Students List</h2>
+                <table class="nametb" id="viewAll">
+                    <thead>
+                        <tr>
+                            <th class="r1">Name</th>
+                            <th class="r1">ID</th>
+                            <th class="r1">GPA</th>
+                            <th class="r1">Level</th>
+                            <th class="r1">Department</th>
+                            <th class="r1">Phone</th>
+                            <th class="r1">Email</th>
+                            <th class="r1">Status</th>
+                            <th class="r1">Toggle</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table__body">
+                        {% for s in stud %}
+                        <tr class='r2'>
+                            <td>{{s.name}}</td>
+                            <td> {{s.stud_ID}}</td>
+                            <td>{{s.GPA}}</td>
+                            <td>{{s.level}}</td>
+                            <td>{{s.department}}</td>
+                            <td>{{s.phone}}</td>
+                            <td>{{s.email}}</td>
+                            <td id="{{s.stud_ID}}">{{s.status}}</td>
+                            <td><input type="button" class="toggle" value="Change Status" id="button" onclick="updateStatus('{{s.status}}', '{{s.stud_ID}}')"></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{%endblock content%}
