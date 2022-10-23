@@ -1,44 +1,44 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/homepage.css'%}?rand=23423423">
-    <title>home page</title>
-</head>
+{% block css %}
+    <link rel="stylesheet" href="{%static 'css/style1.css'%}?rand=23423423">
+    <link rel="stylesheet" href="{%static 'css/addform.css'%}?rand=23423423">
+{% endblock css %}
 
+{%block js%}
+    <script src="{%static 'js/addForm.js'%}"></script>
+    <script src="https://kit.fontawesome.com/44a9a12877.js" crossorigin="anonymous"></script>
+{%endblock js%}
+
+{%block content%}
 <body>
-    <div class="services">
-        <h1>Web Devolopment Projects</h1>
-        <div class="services__container">
-            <div class="services__card">
-                <h2>Human Resources </h2>
-                <p>Manage Employees</p>
-                <button>Go now</button>
-            </div>
-            <div class="services__card">
-                <h2>Student Affairs</h2>
-                <p>Manage Students</p>
-                <a href="{% url 'about' %}" class="button">Go now</a>
-
-
-            </div>
-            <div class="services__card">
-                <h2>Higher studies</h2>
-                <p>Manage Students</p>
-                <button>Go now</button>
-            </div>
-            <div class="services__card">
-                <h2> Laboratory tracking </h2>
-                <p>Manage Laboratories</p>
-                <button> Go now</button>
-            </div>
-        </div>
+    <br><br><br><br>
+    <div class="container">
+        <form id="add_stud" method="POST" action="{% url 'about' %}">
+            {% csrf_token %}
+            <h3>Log In</h3>
+            <h4>Enter your Username and Password to Log in</h4>
+            <fieldset>
+                Username
+                <input type="text" name="name" placeholder="Username" id="name">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa-solid fa-circle-check"></i>
+                <div class="error"></div>
+            </fieldset>
+            <br>
+            <fieldset>
+                Password
+                <input type="text" placeholder="Password" id="ID" name="id">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="error"></div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <button name="submit" type="submit" id="Student-submit" data-submit="...Sending">Log In</button>
+            </fieldset>
+        </form>
     </div>
-
 </body>
-
-</html>
+{%endblock content%}
